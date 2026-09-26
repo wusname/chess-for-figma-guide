@@ -6,7 +6,9 @@
 
 A **Chess for Figma Design Kit** is an editable canvas template with twelve piece slots and one complete board. Importing takes a static snapshot of your artwork and puts it inside a playable Chess for Figma Widget. Your original kit stays editable. No external image hosting or separate accounts are needed.
 
-This is the designer guide for **1.0**. Chess for Figma works in Figma Design and FigJam; creating and importing your artwork happens in Figma Design.
+This is the designer guide for **Chess for Figma 1.1 - Material Freedom**.
+
+**Design with gradients, textures, blends and richer Figma materials. Then play with them.** Chess for Figma works in Figma Design and FigJam; creating and importing your artwork happens in Figma Design.
 
 ## Create a Design Kit
 
@@ -39,7 +41,7 @@ Names inside a slot are entirely yours: `Face`, `Crown` or `My pawn` are all fin
 
 Replace the checkerboard with any static composition. You do not need to define separate light-square and dark-square colors. Keep board artwork within the 800 x 800 slot, with **Clip content** enabled. Do not rotate or resize that slot. Keep square boundaries understandable so players can read their moves.
 
-The Widget adds last-move tint, selection outlines, legal-target dots/rings and check indication above your artwork. Coordinate labels sit outside the artwork on a neutral margin and are not customizable in 1.0. Flipping the board rotates its artwork 180 degrees and repositions the pieces; the pieces remain upright.
+The Widget adds last-move tint, selection outlines, legal-target dots/rings and check indication above your artwork. Coordinate labels sit outside the artwork on a neutral margin and are not customizable in 1.1. Flipping the board rotates its artwork 180 degrees and repositions the pieces; the pieces remain upright.
 
 ## Keep the Kit Structure
 
@@ -49,15 +51,30 @@ The slots may be **Frames, Components or Instances**, with the required dimensio
 
 Do not place playable Widgets, videos, embeds or other dynamic objects inside a slot. Keep the playable chess Widget outside the kit.
 
-## Supported Static Artwork
+## Material Freedom
 
-The importer uses Figma's SVG export, with text converted to vector outlines. Standard vectors, shapes, groups, component artwork and gradients are supported. Frames, Components, Instances, outlined text and a board gradient have been tested in Figma Desktop.
+Use richer Figma materials in **both your pieces and your complete board**. The importer keeps artwork as SVG where that reliably preserves its appearance, and uses a static PNG snapshot for materials that need it. Your original kit stays editable.
 
-- Make sure Figma can display your fonts before importing. Text becomes outlines in the imported snapshot, not editable text inside the Widget.
-- Embedded PNG, JPEG and WebP images are accepted, but can make a set much larger. Check their appearance and responsiveness in the Widget; image-heavy sets were not part of the measured vector examples below.
-- Masks, blend modes, shadows and advanced effects may look different after SVG export. Not every effect has been tested. Unsupported exports produce an error instead of a partially imported set. Simplify or flatten the affected artwork and try again.
-- Linked external images, scripts, SVG animation, external stylesheets and dynamic content are not accepted. If an effect exports SVG style attributes, it is currently rejected; try ordinary vector fills and strokes instead.
-- **Motion is not supported in 1.0.** Static snapshots do not preserve animation, shaders or interactive behavior. Do not rely on a particular animation frame being imported.
+| Material | What you play with |
+| --- | --- |
+| Vectors and solid fills | SVG artwork |
+| Linear/radial gradients | SVG gradients |
+| Masks and clipping | SVG masks/clipping when the other materials allow it |
+| Ordinary drop/inner shadows and normal layer blur | Static SVG effects |
+| Image/texture fills | Static PNG snapshot |
+| Tiled image fills | Static PNG snapshot, retaining the repeated texture |
+| Layer, paint and shadow blend modes | Static PNG snapshot |
+| Angular/diamond gradients | Static PNG snapshot |
+| Shader fills | A still PNG snapshot, not a live shader |
+| Text | Outlined in SVG or flattened with a snapshot slot |
+| Motion, video and animated image fills | Unsupported; use a deliberate still image instead |
+| Native PATTERN paint | Unsupported; use tiled image fills or repeated vectors instead |
+
+If any material in a slot needs a snapshot, the whole slot is flattened. The import result names those slots. Snapshots preserve appearance, **not live behavior**; they do not animate, stay linked to a shader, or let you choose a timeline frame.
+
+Background/progressive blur, shader effects (rather than shader fills), noise/glass/texture effects and other unsupported advanced effects are rejected. Export a deliberate still PNG/JPG first when using those effects. Keep blend backdrops inside the same slot rather than relying on the kit background or outside layers.
+
+Make sure Figma can display your fonts. External image links, scripts, animated SVG and arbitrary SVG styling are not supported. Errors leave the previous set and game unchanged.
 
 ## Import and Play
 
@@ -70,17 +87,19 @@ The import window stays attached to the Widget that opened it while you select t
 
 ## Scaling, Switching and Replacing
 
-The same kit works at **Small, Medium, Large and Ridiculous**. These are playback sizes, not authoring dimensions. A 100 x 100 piece slot maps to one square; the 800 x 800 board maps to the whole board. Pieces fit proportionally and keep their aspect ratios.
+The same kit works at **Small, Medium, Large and Ridiculous**. These are playback sizes, not authoring dimensions. A 100 x 100 piece slot maps to one square; the 800 x 800 board maps to the whole board. Pieces fit proportionally and keep their aspect ratios. Snapshot pieces normally contain 200 x 200 pixels and the board 1600 x 1600; extreme zoom and Ridiculous size can look softer than SVG.
 
 Choose **Club**, **Candy** or **Ink** in the theme menu to return to a built-in style. Your imported artwork stays stored. Choose **Custom** to bring it back.
 
 To replace a set, edit your kit or select another complete kit and import again into the same Widget. To remove it, open **Custom set**, choose **Remove custom set**, then confirm **Remove**. This removes only the imported snapshot, not your canvas kit or game. One custom set is stored per Widget.
 
-The artwork and visual choice belong to the shared Widget rather than to one person's view. Duplicating or copying a Widget carries the artwork with it, while the copied game can evolve independently. Deleting the source kit does not delete the imported snapshot. The game, move history and imported set have also passed a creator-run full Figma Desktop quit/reopen test, with play continuing afterward.
+The artwork and visual choice belong to the shared Widget rather than to one person's view. Duplicating or copying a Widget carries the artwork with it, while the copied game can evolve independently. Deleting the source kit does not delete the imported snapshot. The original 1.0 set passed a creator-run full Figma Desktop quit/reopen test. For 1.1, textured sets also passed Design and FigJam file-close/reopen checks, with artwork and history retained.
 
 ## Keep It Responsive
 
-Simple silhouettes and economical vector paths give the quickest play. In measured Figma Desktop examples on an Apple M4 Pro:
+Simple silhouettes and economical vector paths give the quickest play. The 1.1 textured example, covering all twelve pieces and the board, stored about **160 KiB** and took about **0.4 seconds** to export and validate. A dense angular-gradient board increased a mixed set to about **1.7 MB**. These are examples, not guarantees; each duplicate stores its own set.
+
+Historical 1.0 vector examples on an Apple M4 Pro:
 
 | Example | Stored artwork | Import export/validation time | Rendering/export check |
 | --- | ---: | ---: | ---: |
@@ -102,7 +121,7 @@ Theme switching and removing an imported set are available there. Creating or im
 
 Built for shared-canvas play: editors in the same file can take turns on the same board. Game and visual choices use Figma's synchronized state. Automated state checks are in place, but a live test with two separately authenticated editors was unavailable before 1.0 and remains a post-release verification item. We do not claim a completed two-editor native QA session.
 
-## This First Version
+## Scope
 
 Static custom sets only. No Motion, animated SVG, online asset hosting, set marketplace, Community-sharing system, AI generation or chess variants. Your game remains ordinary chess; only its appearance changes.
 
