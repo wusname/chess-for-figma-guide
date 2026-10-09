@@ -6,9 +6,24 @@
 
 A **Chess for Figma Design Kit** is an editable canvas template with twelve piece slots and one complete board. Importing takes a static snapshot of your artwork and puts it inside a playable Chess for Figma Widget. Your original kit stays editable. No external image hosting or separate accounts are needed.
 
-This is the designer guide for **Chess for Figma 1.1 - Material Freedom**.
+This is the user and designer guide for **Chess for Figma 1.2 — Game Portability**, including Custom Set and Material Freedom.
 
 **Design with gradients, textures, blends and richer Figma materials. Then play with them.** Chess for Figma works in Figma Design and FigJam; creating and importing your artwork happens in Figma Design.
+
+## Game Portability
+
+**Bring any chess game into Figma. Make it yours.**
+
+Select your Widget and open **Game** in Figma Design or FigJam.
+
+- **Load FEN:** Paste a chess position to start playing from there. FEN restores the position and turn, not earlier move history.
+- **Load PGN:** Paste an ordinary game to restore its mainline and Score Sheet. Games with SetUp/FEN starting positions work too.
+- **Copy FEN:** Copy the current position to take it elsewhere.
+- **Copy PGN:** Copy the game, including any additional moves you played in Figma.
+
+Imported games can continue normally on the canvas. Your Custom Set pieces, custom board, board size and Material Freedom appearance remain intact. Replacing a played game or imported position asks for confirmation; invalid input leaves the current game unchanged. Copying works locally without a chess-service account or connection.
+
+PGN comments and alternative variations are not retained. The existing automatic draw rules still apply.
 
 ## Create a Design Kit
 
@@ -115,7 +130,7 @@ The moderate example is a useful starting point for complexity. Thousands of tin
 
 Create and import in **Figma Design**, then copy the customized **Widget**, not just the kit, into FigJam. FigJam uses the stored artwork and does not need the source Frames or Components. Imported custom artwork has been tested rendering and playing moves in FigJam.
 
-Theme switching and removing an imported set are available there. Creating or importing a Design Kit is Design-only.
+Theme switching and removing an imported set are available there. Creating or importing a Design Kit is Design-only. Game Portability, including both imports and both copy actions, works in FigJam as well as Figma Design.
 
 ## Shared-Canvas Play
 
@@ -123,7 +138,7 @@ Built for shared-canvas play: editors in the same file can take turns on the sam
 
 ## Scope
 
-Static custom sets only. No Motion, animated SVG, online asset hosting, set marketplace, Community-sharing system, AI generation or chess variants. Your game remains ordinary chess; only its appearance changes.
+Static custom sets only. No Motion, animated SVG, online asset hosting, set marketplace, Community-sharing system, AI generation or chess variants. Your game remains ordinary chess: Custom Set changes its appearance, while Game lets you bring in a position or mainline game.
 
 ## Support
 
