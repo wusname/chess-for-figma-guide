@@ -6,9 +6,24 @@
 
 A **Chess for Figma Design Kit** is an editable canvas template with twelve piece slots and one complete board. Importing takes a static snapshot of your artwork and puts it inside a playable Chess for Figma Widget. Your original kit stays editable. No external image hosting or separate accounts are needed.
 
-This is the user and designer guide for **Chess for Figma 1.2 — Game Portability**, including Custom Set and Material Freedom.
+This is the user and designer guide for **Chess for Figma 1.3: Play Against Bot**, including Game Portability, Custom Set and Material Freedom.
 
 **Design with gradients, textures, blends and richer Figma materials. Then play with them.** Chess for Figma works in Figma Design and FigJam; creating and importing your artwork happens in Figma Design.
+
+## Play Against Bot
+
+Choose **Opponent** below the board in Figma Design or FigJam. Select **Bot**, pick your difficulty, and choose **White**, **Black** or **Random**. Start the game, then click a piece and its destination. The Bot replies automatically. Choose Black and it makes the opening move for you.
+
+| Difficulty | What to expect |
+| --- | --- |
+| Beginner | Often misses a capture or leaves a piece exposed. |
+| Casual | Takes material more reliably and pays attention to threatened squares. |
+| Club | Looks ahead to your reply before deciding. |
+| Expert | Looks deeper into the most promising moves. |
+
+Your side starts at the bottom; **Flip board** still works. The Score Sheet records both sides. **New game** keeps your difficulty and side preference; Random chooses again. To play with someone else, choose **Opponent > Another person**. Cancel a replacement to keep your game. Your pieces, custom board and size stay as they were.
+
+The opponent runs locally without a chess service. **Copy PGN** includes both players' moves. Loading an outside FEN or PGN returns the board to two-person play.
 
 ## Game Portability
 
